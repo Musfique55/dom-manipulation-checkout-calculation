@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interactive subscribe button & checkout calculation</title>
+</head>
+<body>
+    <p>Youtube Subscribe Button</p>
+    <button id="btn" onclick="Subscribe()">Subscribe</button>
+
+    <p>Amazon Shipping Cost</p>
+    <p>Orders under $40 = $10 shipping charge</p>
+    <p>Over $40 free shipping</p>
+    <input placeholder="Cost of order" class="locate" onkeydown="handle(event)">
+    <button class="calculate" onclick="calculate()">Calculate</button>
+    <p class="result"></p>
+    <script>
+
+        let space = document.querySelector('.locate');
+        const result = document.querySelector('.result');
+        // let cost = input.value;
+        
+        function handle(event){
+            if(event.key === 'Enter'){
+                calculate()
+            }
+        }
+        
+
+        function calculate(){
+            let cost = parseInt(space.value);
+            if(cost < 40){
+                cost = cost + 10;
+            } else {
+                cost;
+            }
+
+            result.innerHTML = `$${cost}`;
+        }
+
+
+        function Subscribe(){
+            const btn = document.querySelector('#btn');
+            if(btn.innerText==='Subscribe'){
+                btn.innerText = 'Subscribed';
+            } else{
+                btn.innerText = 'Subscribe';
+
+            }
+        }
+    </script>
+
+</body>
+</html>
